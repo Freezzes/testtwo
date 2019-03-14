@@ -1,0 +1,12 @@
+<h1>Remove Question</h1>
+<form action="{% url 'polls:remove' %}" method="post">
+        {% csrf_token %}
+        
+        {% for question in latest_question_list %}
+        <input type="radio" name="question" value="{{ question.id }}">
+        <label for="{{ forloop.counter }}">{{ question.question_text }}</label>
+        <br>
+        {% endfor %}
+    
+        <input type="submit" value="remove">
+    </form>
